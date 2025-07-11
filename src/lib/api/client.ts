@@ -1,5 +1,5 @@
-const storeId = process.env.NEXT_PUBLIC_STORE_ID || 'demo-store';
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+const storeId = import.meta.env.VITE_STORE_ID || 'demo-store';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000';
 
 // Types
 export interface Product {
