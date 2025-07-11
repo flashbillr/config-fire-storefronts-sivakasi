@@ -2,95 +2,135 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Sivakasi Celebration Theme - Festival Fireworks Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base Colors - Celebration Theme */
+    --background: 45 100% 98%;
+    --foreground: 0 15% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Festival Primary - Deep Orange */
+    --primary: 18 95% 55%;
+    --primary-foreground: 45 100% 98%;
+    --primary-glow: 18 85% 65%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Secondary - Royal Red */
+    --secondary: 0 85% 60%;
+    --secondary-foreground: 45 100% 98%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Accent - Golden Yellow */
+    --accent: 45 95% 60%;
+    --accent-foreground: 0 15% 15%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Surface Colors */
+    --card: 45 40% 96%;
+    --card-foreground: 0 15% 15%;
+    --popover: 45 100% 98%;
+    --popover-foreground: 0 15% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted Colors */
+    --muted: 45 30% 92%;
+    --muted-foreground: 0 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Border & Input */
+    --border: 45 30% 85%;
+    --input: 45 30% 90%;
+    --ring: 18 95% 55%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive */
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 45 100% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Festival Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(18 95% 55%), hsl(45 95% 60%));
+    --gradient-secondary: linear-gradient(135deg, hsl(0 85% 60%), hsl(18 95% 55%));
+    --gradient-celebration: linear-gradient(135deg, hsl(280 80% 60%), hsl(0 85% 60%), hsl(18 95% 55%), hsl(45 95% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(280 80% 60% / 0.9), hsl(0 85% 60% / 0.9));
 
-    --radius: 0.5rem;
+    /* Festival Shadows & Glows */
+    --shadow-celebration: 0 10px 40px hsl(18 95% 55% / 0.3);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.08);
+    --glow-primary: 0 0 30px hsl(18 95% 55% / 0.6);
+    --glow-accent: 0 0 25px hsl(45 95% 60% / 0.5);
 
-    --sidebar-background: 0 0% 98%;
+    /* Animation Variables */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-celebration: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    /* Spacing & Layout */
+    --radius: 0.75rem;
+    --radius-celebration: 1.5rem;
 
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar (for admin/dashboard) */
+    --sidebar-background: 45 40% 96%;
+    --sidebar-foreground: 0 15% 15%;
+    --sidebar-primary: 18 95% 55%;
+    --sidebar-primary-foreground: 45 100% 98%;
+    --sidebar-accent: 45 30% 92%;
+    --sidebar-accent-foreground: 0 15% 15%;
+    --sidebar-border: 45 30% 85%;
+    --sidebar-ring: 18 95% 55%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark Festival Theme */
+    --background: 0 15% 8%;
+    --foreground: 45 100% 95%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* Festival Primary - Bright Orange */
+    --primary: 18 95% 65%;
+    --primary-foreground: 0 15% 8%;
+    --primary-glow: 18 85% 75%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    /* Secondary - Bright Red */
+    --secondary: 0 85% 70%;
+    --secondary-foreground: 0 15% 8%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Golden Yellow */
+    --accent: 45 95% 70%;
+    --accent-foreground: 0 15% 8%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Surface Colors */
+    --card: 0 10% 12%;
+    --card-foreground: 45 100% 95%;
+    --popover: 0 15% 10%;
+    --popover-foreground: 45 100% 95%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Muted Colors */
+    --muted: 0 10% 16%;
+    --muted-foreground: 45 20% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Border & Input */
+    --border: 0 10% 20%;
+    --input: 0 10% 16%;
+    --ring: 18 95% 65%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive */
+    --destructive: 0 85% 70%;
+    --destructive-foreground: 0 15% 8%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dark Festival Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(18 95% 65%), hsl(45 95% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(0 85% 70%), hsl(18 95% 65%));
+    --gradient-celebration: linear-gradient(135deg, hsl(280 80% 70%), hsl(0 85% 70%), hsl(18 95% 65%), hsl(45 95% 70%));
+    --gradient-hero: linear-gradient(135deg, hsl(280 80% 20% / 0.9), hsl(0 85% 20% / 0.9));
+
+    /* Dark Festival Shadows & Glows */
+    --shadow-celebration: 0 10px 40px hsl(18 95% 65% / 0.4);
+    --shadow-card: 0 4px 20px hsl(0 0% 0% / 0.3);
+    --glow-primary: 0 0 30px hsl(18 95% 65% / 0.7);
+    --glow-accent: 0 0 25px hsl(45 95% 70% / 0.6);
+
+    /* Dark Sidebar */
+    --sidebar-background: 0 10% 10%;
+    --sidebar-foreground: 45 100% 95%;
+    --sidebar-primary: 18 95% 65%;
+    --sidebar-primary-foreground: 0 15% 8%;
+    --sidebar-accent: 0 10% 16%;
+    --sidebar-accent-foreground: 45 100% 95%;
+    --sidebar-border: 0 10% 20%;
+    --sidebar-ring: 18 95% 65%;
   }
 }
 
