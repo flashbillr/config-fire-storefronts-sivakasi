@@ -25,10 +25,20 @@ type CartAction =
   | { type: 'CLOSE_CART' }
   | { type: 'LOAD_CART'; payload: CartItem[] };
 
+interface CartItem2 {
+  id: string;
+  name: string;
+  price: number;
+  mrp: number;
+  image: string;
+  quantity: number;
+  inStock: boolean;
+}
+
 const CartContext = createContext<{
   state: CartState;
   dispatch: React.Dispatch<CartAction>;
-  addItem: (product: Product, quantity?: number) => void;
+  addItem: (item: CartItem2 | Product, quantity?: number) => void;
   removeItem: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
@@ -181,8 +191,29 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
     localStorage.setItem('cart', JSON.stringify(state.items));
   }, [state.items]);
 
-  const addItem = (product: Product, quantity: number = 1) => {
-    dispatch({ type: 'ADD_ITEM', payload: { product, quantity } });
+  const addItem = (item: CartItem2 | Product, quantity: number = 1) => {
+    // If it's already a CartItem2, convert to Product format for the reducer
+    if ('price' in item) {
+      // It's a CartItem2, create a Product-like object
+      const product: Product = {
+        id: item.id,
+        name: item.name,
+        description: '',
+        categoryId: '',
+        categoryName: '',
+        brand: '',
+        sku: '',
+        mrp: item.mrp,
+        sellingPrice: item.price,
+        inStock: item.inStock,
+        currentStock: 999,
+        images: [item.image]
+      };
+      dispatch({ type: 'ADD_ITEM', payload: { product, quantity: item.quantity } });
+    } else {
+      // It's a Product
+      dispatch({ type: 'ADD_ITEM', payload: { product: item, quantity } });
+    }
   };
 
   const removeItem = (productId: string) => {

@@ -54,6 +54,19 @@ export interface ThemeConfig {
     ctaGlow: boolean;
     floatingElements: boolean;
     parallaxScroll: boolean;
+    celebrationMode: boolean;
+  };
+
+  // Animation timings
+  animations: {
+    bannerAutoPlayDuration: number;
+  };
+
+  // UI settings  
+  ui: {
+    borderRadius: string;
+    imageStyle: string;
+    videoSupport: boolean;
   };
 
   // Layout Preferences
@@ -136,7 +149,8 @@ export const themeConfig: ThemeConfig = {
     hoverAnimations: true,
     ctaGlow: true,
     floatingElements: true,
-    parallaxScroll: false
+    parallaxScroll: false,
+    celebrationMode: true
   },
 
   layout: {
@@ -156,6 +170,18 @@ export const themeConfig: ThemeConfig = {
     videoSupport: true,
     imageZoom: true,
     backdropBlur: true
+  },
+
+  // Animation timings
+  animations: {
+    bannerAutoPlayDuration: 5000
+  },
+
+  // UI settings  
+  ui: {
+    borderRadius: 'lg',
+    imageStyle: 'rounded',
+    videoSupport: true
   },
 
   components: {

@@ -13,6 +13,7 @@ interface ModalContextValue extends ModalState {
   openProductModal: (product: Product) => void;
   openAuthModal: () => void;
   openVideoModal: (product: Product) => void;
+  openModal: (modal: { type: string; product?: Product }) => void;
   closeModal: () => void;
 }
 
@@ -82,6 +83,14 @@ export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
     });
   };
 
+  const openModal = (modal: { type: string; product?: Product }) => {
+    setModalState({
+      isOpen: true,
+      product: modal.product || null,
+      type: modal.type as any,
+    });
+  };
+
   const closeModal = () => {
     setModalState({
       isOpen: false,
@@ -97,6 +106,7 @@ export const ModalProvider: React.FC<{ children: React.ReactNode }> = ({
         openProductModal,
         openAuthModal,
         openVideoModal,
+        openModal,
         closeModal,
       }}
     >
